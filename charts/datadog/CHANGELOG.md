@@ -1,5 +1,9 @@
 # Datadog changelog
 
+## 2.11.0
+
+* The Datadog Cluster Agent's Admission Controller now uses a `Role` to watch secrets instead of a `ClusterRole`. (Requires Datadog Cluster Agent v1.12+)
+
 ## 2.10.10
 
 * Fix system-probe version check when using `datadog.networkMonitoring.enabled`
