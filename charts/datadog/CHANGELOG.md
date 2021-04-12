@@ -1,5 +1,9 @@
 # Datadog changelog
 
+## 2.10.14
+
+* Support kube-state-metrics core check
+
 ## 2.10.13
 
 * Fix `security-agent-feature` helper function to support `helm2`.

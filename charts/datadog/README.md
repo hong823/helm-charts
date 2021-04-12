@@ -1,6 +1,6 @@
 # Datadog
 
-![Version: 2.10.13](https://img.shields.io/badge/Version-2.10.13-informational?style=flat-square) ![AppVersion: 7](https://img.shields.io/badge/AppVersion-7-informational?style=flat-square)
+![Version: 2.10.14](https://img.shields.io/badge/Version-2.10.14-informational?style=flat-square) ![AppVersion: 7](https://img.shields.io/badge/AppVersion-7-informational?style=flat-square)
 
 [Datadog](https://www.datadoghq.com/) is a hosted infrastructure monitoring platform. This chart adds the Datadog Agent to all nodes in your cluster via a DaemonSet. It also optionally depends on the [kube-state-metrics chart](https://github.com/kubernetes/charts/tree/master/stable/kube-state-metrics). For more information about monitoring Kubernetes with Datadog, please refer to the [Datadog documentation website](https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/).
 
@@ -477,6 +477,9 @@ helm install --name <RELEASE_NAME> \
 | datadog.env | list | `[]` | Set environment variables for all Agents |
 | datadog.envFrom | list | `[]` | Set environment variables for all Agents directly from configMaps and/or secrets |
 | datadog.hostVolumeMountPropagation | string | `"None"` | Allow to specify the `mountPropagation` value on all volumeMounts using HostPath |
+| datadog.kubeStateMetricsCore | object | `{"enabled":false,"ignoreLegacyKSMCheck":true}` | Kube-State-Metrics core check configuration |
+| datadog.kubeStateMetricsCore.enabled | bool | `false` | Enable the kubernetes_state_core check in the Cluster Agent |
+| datadog.kubeStateMetricsCore.ignoreLegacyKSMCheck | bool | `true` | Disable the auto-configuration of lagacy kubernetes_state check (taken into account only when datadog.kubeStateMetricsCore.enabled is true) |
 | datadog.kubeStateMetricsEnabled | bool | `true` | If true, deploys the kube-state-metrics deployment |
 | datadog.kubeStateMetricsNetworkPolicy.create | bool | `false` | If true, create a NetworkPolicy for kube state metrics |
 | datadog.kubelet.host | object | `{"valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}` | Override kubelet IP |
